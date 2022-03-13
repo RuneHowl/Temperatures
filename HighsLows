@@ -42,26 +42,24 @@ void getData(double y [] [2], int z)
         }
         
        } 
-double averageHigh(double y [] [2], int z)
+int averageHigh(double y [] [2], int z)
 {
     double sum = 0;
     
     for(int i = 0; i < z; i++)
     sum+= y [i][0];
-    std::cout << std::setprecision(0) << averageHigh;
-  std::cout << std::fixed;
+    std::cout << std::setprecision(0) << (sum/z);
     return (sum/z);
 }
 
-double averageLow(double y [] [2], int z)
+int averageLow(double y [] [2], int z)
 {
     double sum = 0;
     
     for(int i = 0; i < z; i++)
     sum+= y [i][1];
 
-  std::cout << std::setprecision(0) << averageLow;
-  std::cout << std::fixed; 
+  std::cout << std::setprecision(0) << (sum/z); 
     
   
     
@@ -85,7 +83,7 @@ int indexHighTemp(double y [] [2], int z)
 int indexLowTemp(double y [] [2], int z)
 {
     int index = 0;
-    double lowest = y[0][0];
+    double lowest = y[0][1];
     
     for(int i = 0; i < z; i++)
         if(y[i][0] < lowest)
