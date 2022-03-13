@@ -1,0 +1,97 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+const int Months = 12; 
+
+void getData(double [] [2], int);
+double averageHigh(double [] [2], int);
+double averageLow(double [] [2], int);
+int indexHighTemp(double [] [2], int);
+int indexLowTemp(double [] [2], int);
+
+
+
+
+
+int main() {
+    // Write your main here
+    
+    double temps[Months] [2];
+    
+    getData(temps, Months);
+    
+  
+    cout << "\n\n\t Average high temperature: " << averageHigh(temps, Months);
+    cout << "\n\n\t Average low temperature: " << averageLow(temps, Months);
+    
+    
+    cout << "\n\n\t Highest temperature: " << indexHighTemp(temps, Months);
+    cout << "\n\n\t Lowest temperature: " << indexLowTemp(temps, Months);
+    return 0;
+}
+
+void getData(double y [] [2], int z)
+       { for(int i = 0; i < z; i++){
+            cout << "Enter high temperature for each month" << (i+1) << " : ";
+            cin >> y [i] [0];
+            
+            cout << "Enter low temperature for each month" << (i+1) << " : ";
+            cin >> y [i] [1];
+        }
+        
+       } 
+double averageHigh(double y [] [2], int z)
+{
+    double sum = 0;
+    
+    for(int i = 0; i < z; i++)
+    sum+= y [i][0];
+    std::cout << std::setprecision(0) << averageHigh;
+  std::cout << std::fixed;
+    return (sum/z);
+}
+
+double averageLow(double y [] [2], int z)
+{
+    double sum = 0;
+    
+    for(int i = 0; i < z; i++)
+    sum+= y [i][1];
+
+  std::cout << std::setprecision(0) << averageLow;
+  std::cout << std::fixed; 
+    
+  
+    
+    return (sum/z);
+}
+
+int indexHighTemp(double y [] [2], int z)
+{
+    int index = 0;
+    double highest = y[0][0];
+    
+    for(int i = 0; i < z; i++)
+        if(y[i][0] > highest)
+        {
+            highest = y[i][0];
+            index = i;
+        }
+        return index;
+}
+
+int indexLowTemp(double y [] [2], int z)
+{
+    int index = 0;
+    double lowest = y[0][0];
+    
+    for(int i = 0; i < z; i++)
+        if(y[i][0] < lowest)
+        {
+            lowest = y[i][1];
+            index = i;
+        }
+        return index;
+}
