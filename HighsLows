@@ -7,7 +7,102 @@ const int Months = 12;
 
 void getData(double [] [2], int);
 double averageHigh(double [] [2], int);
-double averageLow(double [] [2], int);
+double averageLow(double [] [2], int);#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+const int Months = 12; 
+
+void getData(int [] [2], int);
+int averageHigh(int [] [2], int);
+int averageLow(int [] [2], int);
+int indexHighTemp(int [] [2], int);
+int indexLowTemp(int [] [2], int);
+
+
+int main() {
+    // Write your main here
+    
+    int temps[Months] [2];
+    
+    getData(temps, Months);
+    
+  
+    cout << "\n\n\t Average high temperature: " << averageHigh(temps, Months);
+    cout << "\n\n\t Average low temperature: " << averageLow(temps, Months);
+    
+    
+    cout << "\n\n\t Highest temperature: " << indexHighTemp(temps, Months);
+    cout << "\n\n\t Lowest temperature: " << indexLowTemp(temps, Months);
+    return 0;
+}
+
+void getData(int y [] [2], int z)
+       { for(int i = 0; i < z; i++){
+            cout << "Enter high temperature for each month" << (i+1) << " : ";
+            cin >> y [i] [0];
+            
+            cout << "Enter low temperature for each month" << (i+1) << " : ";
+            cin >> y [i] [1];
+        }
+        
+       } 
+ int averageHigh(int y [] [2], int z)
+{
+    int sum = 0;
+    
+    for(int i = 0; i < z; i++){
+    sum+= y [i][0];
+    }
+    
+    return(sum/z);
+}
+
+ int averageLow(int y [] [2], int z)
+{
+    int sum = 0;
+    
+    for(int i = 0; i < z; i++){
+    sum+= y [i][1];
+    }
+    
+return (sum/z);
+}
+
+int indexHighTemp(int y [] [2], int z)
+{
+    int index = 0;
+    int highest = y[0][0];
+    
+    for(int i = 0; i < z; i++){
+        if(y[i][0] > highest)
+        {
+            highest = y[i][0];
+            index = i;
+        }
+    }
+        return index;
+    
+}
+
+int indexLowTemp(int y [] [2], int z)
+{
+    int index = 0;
+    int lowest = y[0][1];
+    
+    for(int i = 0; i < z; i++){
+        if(y[i][1] < lowest)
+        {
+            lowest = y[i][1];
+            index = i;
+        }
+        }
+        return index;
+    
+        
+}
+
 int indexHighTemp(double [] [2], int);
 int indexLowTemp(double [] [2], int);
 
